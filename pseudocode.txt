@@ -1,0 +1,33 @@
+HTML
+
+list and display wins, losses, guesses remaining, player guesses so far
+
+JS
+
+initialize variables for random letter, wins, losses, guesses remaining, player guesses so far 
+
+Start a new game:
+
+Set wins, losses = 0
+{ Set gueses remaining = 9
+Set player gueses to empty string } or do these only on new play round
+
+Start a new round:
+
+Pick a new random letter
+Reset guesses remaining to 9
+Set player gueses to empty string
+
+Inside round
+
+Listen for keystrokes, convert to guessed letter
+
+If it is not a letter, ignore
+Is it right? Increment wins and exit loop
+Is it wrong? Decrement guesses remaining, append guess to player guesses
+Is it already guessed? Ignore
+
+
+Refresh display (all at once?)
+Take values from variables and put them into the id'd spans
+Make a string of player guesses so far from the array
