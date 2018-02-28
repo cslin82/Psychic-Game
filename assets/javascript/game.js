@@ -61,20 +61,33 @@ document.onkeyup = function(event) {
 
     if ( (alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1) ) { return 0; }
 
-    playerGuesses = playerGuesses + userGuess;
     // console.log(userGuess);
-
+    
     console.log(`user guessed ${userGuess}, computer letter is ${computerLetter}`);
     
     if (userGuess === computerLetter) {
-        alert('that\'s right! i was thinking of ' + computerLetter.toUpperCase() + '!');
         wins++;
+        updateGameBoard();
+        alert('that\'s right! i was thinking of ' + computerLetter.toUpperCase() + '!');
+        alert('starting a new round...');
+        resetGame();
+        updateGameBoard();
     } else {
         guessesLeft--;
+        playerGuesses = playerGuesses + userGuess;
+        updateGameBoard();
+        
+        if (guessesLeft===0) {
+            losses++;
+            updateGameBoard();
+            alert('sorry! i was thinking of ' + computerLetter.toUpperCase() + '!');
+            alert('starting a new round...');
+            resetGame();
+            updateGameBoard();
+        }
     }
+// TODO: figure out where to place updateGameBoard for desired update frequency. probably right here.
 
-
-    updateGameBoard();
     
   };
 
