@@ -47,3 +47,18 @@ function updateGameBoard() {
     // spanGuesses.innerHTML = "guesses go here"; // guessesToString(guesses);
 
 }
+
+
+document.onkeyup = function(event) {
+
+    // Determines which key was pressed.
+    var userGuess = event.key;
+
+    if ( (alphabet.indexOf(userGuess) === -1) || (playerGuesses.indexOf(userGuess) !== -1) ) { return 0; }
+
+    playerGuesses = playerGuesses + userGuess;
+    // console.log(userGuess);
+
+    updateGameBoard();
+    
+  };
