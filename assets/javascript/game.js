@@ -1,7 +1,6 @@
 // starting variables
 var computerLetter = '';
 var playerGuesses = "";
-// var playerGuessesString = "";
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
@@ -48,6 +47,12 @@ function updateGameBoard() {
 
 }
 
+function resetGame() {
+    computerLetter = randomLetter();
+    playerGuesses = "";
+    guessesLeft = 9;
+}
+
 
 document.onkeyup = function(event) {
 
@@ -59,6 +64,19 @@ document.onkeyup = function(event) {
     playerGuesses = playerGuesses + userGuess;
     // console.log(userGuess);
 
+    console.log(`user guessed ${userGuess}, computer letter is ${computerLetter}`);
+    
+    if (userGuess === computerLetter) {
+        alert('that\'s right! i was thinking of ' + computerLetter.toUpperCase() + '!');
+        wins++;
+    } else {
+        guessesLeft--;
+    }
+
+
     updateGameBoard();
     
   };
+
+  resetGame();
+  updateGameBoard();
